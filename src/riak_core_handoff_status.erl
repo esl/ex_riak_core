@@ -28,7 +28,7 @@
 -define(ORDERED_TRANSFERS_FOR_DISPLAY,
         [{ownership, "Ownership"}, {resize, "Resize"}, {hinted, "Hinted"}, {repair, "Repair"}]).
 
-%% This module's CLI callbacks and usage are registered with riak_core_handoff_cli
+
 %%%%%%
 %% clique callbacks
 

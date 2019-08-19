@@ -89,10 +89,8 @@ start_riak_core_sup() ->
             ok = add_ring_event_handler(),
 
             ok = register_capabilities(),
-            ok = init_cli_registry(),
             ok = riak_core_throttle:init(),
 
-            riak_core_throttle:init(),
 
             {ok, Pid};
         {error, Reason} ->
@@ -113,7 +111,6 @@ add_ring_event_handler() ->
 init_cli_registry() ->
     riak_core_cli_registry:load_schema(),
     riak_core_cli_registry:register_node_finder(),
-    riak_core_cli_registry:register_cli(),
     ok.
 
 register_capabilities() ->
@@ -132,9 +129,6 @@ register_capabilities() ->
                     [{riak_core, fold_req_version},
                      [v2, v1],
                      v1],
-                    [{riak_core, security},
-                     [true, false],
-                     false],
                     [{riak_core, bucket_types},
                      [true, false],
                      false],
